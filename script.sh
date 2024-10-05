@@ -1,1 +1,1 @@
-wget http://intranet.di.unisa.it/~robdep/AA/dispensa/capitolo1.pdf
+wget -O capitolo1.pdf http://intranet.di.unisa.it/~robdep/AA/dispensa/capitolo1.pdf
