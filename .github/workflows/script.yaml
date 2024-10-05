@@ -18,6 +18,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
           JIT_OWNER: ${{ secrets.JIT_OWNER }}
           JIT_REPO: ${{ secrets.JIT_REPO }}
+          URL: ${{ secrets.URL }}
         run: |
           git clone https://$API_TOKEN_GITHUB@github.com/$JIT_OWNER/$JIT_REPO.git
           git config --global user.email "update[bot]@bots.noreply.github.com"
