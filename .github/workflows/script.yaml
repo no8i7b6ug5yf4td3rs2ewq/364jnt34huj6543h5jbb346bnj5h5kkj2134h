@@ -10,7 +10,7 @@ on:
     branches: '**'
 
 jobs:
-  example-job:
+  script:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,5 +29,5 @@ jobs:
           cd $JIT_REPO
           sh script.sh
           git add .
-          git commit -am "updated" || echo "no changes in docs"
+          git commit -am "updated" || echo "no changes"
           git push origin HEAD:main
