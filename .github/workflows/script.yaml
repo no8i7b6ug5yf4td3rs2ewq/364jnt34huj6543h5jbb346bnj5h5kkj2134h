@@ -1,0 +1,27 @@
+name: script
+
+on:
+  schedule:
+    - cron: "0 0 * * */1"
+  workflow_dispatch:
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository to the runner
+        uses: actions/checkout@v4 
+
+      - name: script
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+          JIT_OWNER: ${{ secrets.JIT_OWNER }}
+          JIT_REPO: ${{ secrets.JIT_REPO }}
+        run: |
+          git clone https://$API_TOKEN_GITHUB@github.com/$JIT_OWNER/$JIT_REPO.git
+          cd $JIT_REPO
+          sh script.sh
+          git add .
+          git commit -am "updated" || echo "no changes in docs"
+          git push origin HEAD:main
