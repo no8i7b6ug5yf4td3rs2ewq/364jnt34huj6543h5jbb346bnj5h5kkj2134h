@@ -7,8 +7,8 @@ do
     echo "chapter $i"
     echo "<tr><td>$i</td>" >> $FILE
     data=`curl -Is $URL/capitolo$i.pdf`
-    lastM=`echo $data | grep "Last-Modified" | cut -c16-`
-    etag=`echo $data | grep "ETag" | cut -c6-`
+    lastM=`echo "$data" | grep "Last-Modified" | cut -c16-`
+    etag=`echo "$data" | grep "ETag" | cut -c7-`
     echo "<td>$lastM</td>" >> $FILE
     echo "<td>$etag</td>" >> $FILE
     echo "</tr>" >> $FILE
